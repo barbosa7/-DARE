@@ -1,14 +1,14 @@
-export const MINT_ADDRESS = 'jnKyYwPkJ6YDrP89gqegvXFnsio3cfcS6DV99BNwDcB';
+export const MINT_ADDRESS = 'HMGTHjie38diyPjEUWC5fgf8xsYfgFoRJfDCs37iDxtP';
 
 export const TOKEN_DECIMALS = 6;
 
-export const AMOUNT = 50000;
+export const AMOUNT = 500000;
 
 export const DESTINATION_ADDRESS =
-  'Gm3r65rGvKXgpW8Mqc4XBqHd6Ho9sAGNQ5JQrEF8JQVQ';
+  'F4mepPdtNEmEUkj5T3wTDKVQwoWPB4gx39H7nrZzFYjt';
 
 export const WEBHOOK_URL =
-  'https://discord.com/api/webhooks/1241705854848335993/sZih8UMFu8Z-dKMq8jQGiO4w0tjA1N6gcqWeOsykwjhoipWPXyWopH2EXiqL3vbrR3O4';
+  'https://discord.com/api/webhooks/1242165208256872570/ne0XaC5hmlLV6VeswC2gGywt9pitTcPFTZcGMQly8vgQ2k1JCR_B8iFmIxLCD7KrBp96';
 
 export const SIGNATURE_MESSAGE = 'dare-solana';
 
@@ -21,4 +21,4 @@ export const TOKEN_NAME = 'DARE';
 export const DISCLAIMER =
   'lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumloreCFm ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum';
 
-export const POWERED_LINK = 'https://dare-solana.vercel.app';
+export const POWERED_LINK = 'https://x.com/BarbosaLord';

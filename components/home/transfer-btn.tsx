@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import { useState, useTransition } from "react";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { AMOUNT, DESTINATION_ADDRESS } from "@/data/constants";
-import { useFetchUser } from "@/hooks/use-fetch-user";
-import { transferWithNotification } from "@/actions/transfer";
-import LoginButton from "../login-btn";
-import { toast } from "react-toastify";
-import useUmi from "@/hooks/use-umi";
-import { reverseFormatAmountWithDecimals, serialize } from "@/lib/utils";
+import { useState, useTransition } from 'react';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { AMOUNT, DESTINATION_ADDRESS } from '@/data/constants';
+import { useFetchUser } from '@/hooks/use-fetch-user';
+import { transferWithNotification } from '@/actions/transfer';
+import LoginButton from '../login-btn';
+import { toast } from 'react-toastify';
+import useUmi from '@/hooks/use-umi';
+import { reverseFormatAmountWithDecimals, serialize } from '@/lib/utils';
 import {
   createNoopSigner,
   publicKey,
   transactionBuilder,
-} from "@metaplex-foundation/umi";
+} from '@metaplex-foundation/umi';
 import {
   createTokenIfMissing,
   setComputeUnitLimit,
   setComputeUnitPrice,
   transferTokens,
-} from "@metaplex-foundation/mpl-toolbox";
-import { getSplTokenAccountAddress } from "@/actions/get-spl-token-account";
-import { getUserBalance } from "@/actions/get-user-balance";
-import { WalletSignTransactionError } from "@solana/wallet-adapter-base";
+} from '@metaplex-foundation/mpl-toolbox';
+import { getSplTokenAccountAddress } from '@/actions/get-spl-token-account';
+import { getUserBalance } from '@/actions/get-user-balance';
+import { WalletSignTransactionError } from '@solana/wallet-adapter-base';
 
 const TransferButton = ({
   message,
@@ -43,14 +43,14 @@ const TransferButton = ({
   const handleClick = async () => {
     try {
       if (message.length === 0) {
-        toast.warning("Please enter a dare");
+        toast.warning('Please enter a dare');
         return;
       }
 
       const balance = await getUserBalance(user);
 
       if (balance < AMOUNT) {
-        toast.error("Insufficient balance");
+        toast.error('Insufficient balance');
         return;
       }
 
@@ -75,12 +75,12 @@ const TransferButton = ({
       transactionBuild = transactionBuild
         .add(
           setComputeUnitLimit(umi, {
-            units: 800000,
+            units: 1000000,
           })
         )
         .add(
           setComputeUnitPrice(umi, {
-            microLamports: 75000,
+            microLamports: 100000,
           })
         )
         .add(
@@ -109,17 +109,17 @@ const TransferButton = ({
       });
     } catch (error) {
       if (error instanceof WalletSignTransactionError) {
-        toast.error("Transaction was rejected.");
+        toast.error('Transaction was rejected.');
         return;
       }
-      toast.error("An error occured. Please try again");
+      toast.error('An error occured. Please try again');
     }
   };
 
   return (
     <Button
       disabled={isPending}
-      variant={"mybtn"}
+      variant={'mybtn'}
       className="w-full"
       onClick={() => startTransition(() => handleClick())}
     >
